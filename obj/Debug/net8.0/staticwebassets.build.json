@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "jZnbcYxjKpcCzLu9Fl2RZ7Q3qYvH/Pu3U8vbTFLjczI=",
+  "Source": "CollaborativeToDoList",
+  "BasePath": "_content/CollaborativeToDoList",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "CollaborativeToDoList\\wwwroot",
+      "Source": "CollaborativeToDoList",
+      "ContentRoot": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\wwwroot\\",
+      "BasePath": "_content/CollaborativeToDoList",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}
