@@ -1,4 +1,7 @@
 using CollaborativeToDoList.Data;
+using CollaborativeToDoList.Repository.UsersRepos;
+using CollaborativeToDoList.Service;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
 namespace CollaborativeToDoList
@@ -14,6 +17,28 @@ namespace CollaborativeToDoList
             builder.Services.AddDbContext<TodoListDbContext>(options => options.UseSqlServer(
                 connectionString
                 ));
+
+            // Add authentication with cookie options
+            builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>
+                {
+                    options.Cookie.HttpOnly = true; // Prevent client-side script access
+                    options.Cookie.SecurePolicy = CookieSecurePolicy.Always; // Require HTTPS
+                    options.Cookie.SameSite = SameSiteMode.Strict; // Prevent CSRF
+                    options.LoginPath = "/Auth/Login"; // Redirect to login page if unauthorized
+                    options.AccessDeniedPath = "/Auth/AccessDenied"; // Redirect to access denied page
+                });
+
+            builder.Services.AddAuthorization(options =>
+            {
+                options.AddPolicy("AdminOnly", policy => policy.RequireClaim("IsAdmin", "True"));
+            });
+
+            builder.Services.AddScoped<IUsersRepository, UsersRepositoryImp>();
+            builder.Services.AddScoped<IUserService, UserServiceImp>();
+
+            // Register IHttpContextAccessor to access HttpContext in services
+            builder.Services.AddHttpContextAccessor();
 
             ConfigureServices(builder.Services);
 
@@ -60,6 +85,9 @@ namespace CollaborativeToDoList
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            // Add authentication middleware (must be before UseAuthorization)
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
