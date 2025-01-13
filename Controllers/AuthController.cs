@@ -1,8 +1,8 @@
-﻿using CollaborativeToDoList.Service;
-using CollaborativeToDoList.ViewModels.UsersModels.request;
+﻿using CollaborativeToDoList.ViewModels.UsersModels.request;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
+using CollaborativeToDoList.Service.UserService;
 
 namespace CollaborativeToDoList.Controllers
 {
@@ -30,8 +30,8 @@ namespace CollaborativeToDoList.Controllers
 
                 if (user == null) return RedirectToAction("Login");
 
-                return RedirectToAction("Register");
-            }
+                return RedirectToAction("TodoHome", "TodoLists");
+            } 
 
             return View(loginDTO);
         }
@@ -53,7 +53,6 @@ namespace CollaborativeToDoList.Controllers
 
             return View(registerDTO);
         }
-
 
         [HttpPost]
         public async Task<IActionResult> Logout()

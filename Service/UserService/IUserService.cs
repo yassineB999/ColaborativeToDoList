@@ -1,7 +1,7 @@
 ﻿using CollaborativeToDoList.ViewModels.UsersModels.request;
 using CollaborativeToDoList.ViewModels.UsersModels.response;
 
-namespace CollaborativeToDoList.Service
+namespace CollaborativeToDoList.Service.UserService
 {
     public interface IUserService
     {

@@ -15,9 +15,9 @@ namespace CollaborativeToDoList.Models
 
         [ForeignKey("Users")]
 
-        public int OwnerId;
+        public int UsersId { get; set; }
 
-        public Users users;
+        public Users users { get; set; }
 
         public ICollection<Collaborators> Collaborators { get; set; } = [];
         public ICollection<Tasks> Tasks { get; set; } = [];

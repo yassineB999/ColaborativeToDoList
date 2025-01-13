@@ -16,5 +16,6 @@ namespace CollaborativeToDoList.Data
         public DbSet<Tasks> Tasks { get; set; }
 
         public DbSet<Collaborators> Collaborators { get; set; }
+
     }
 }

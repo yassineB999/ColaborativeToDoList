@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 
-namespace CollaborativeToDoList.Service
+namespace CollaborativeToDoList.Service.UserService
 {
     public class UserServiceImp : IUserService
     {
@@ -22,7 +22,7 @@ namespace CollaborativeToDoList.Service
 
         public async Task<DataUserDTO> LoginUser(LoginDTO loginDTO)
         {
-            Users user =  _usersRepository.GetUserByEmail(loginDTO.email).Result;
+            Users user = _usersRepository.GetUserByEmail(loginDTO.email).Result;
 
             if (user == null)
             {
@@ -38,7 +38,7 @@ namespace CollaborativeToDoList.Service
                 new Claim(ClaimTypes.Name, user.Email),
                 new Claim("UserId", user.Id.ToString()),
                 new Claim("IsAdmin", user.isAdmin.ToString())
-               
+
             };
             // Create claims identity
             var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
@@ -50,10 +50,10 @@ namespace CollaborativeToDoList.Service
                 ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(30) // Set cookie expiration
             };
 
-              await _httpContextAccessor.HttpContext!.SignInAsync(
-                CookieAuthenticationDefaults.AuthenticationScheme,
-                new ClaimsPrincipal(claimsIdentity),
-                authProperties);
+            await _httpContextAccessor.HttpContext!.SignInAsync(
+              CookieAuthenticationDefaults.AuthenticationScheme,
+              new ClaimsPrincipal(claimsIdentity),
+              authProperties);
 
             DataUserDTO userDTO = new DataUserDTO(user.Id, user.FullName, user.UserName, user.Email);
 
@@ -74,7 +74,7 @@ namespace CollaborativeToDoList.Service
             var newUser = new Users
             {
                 UserName = registerDTO.Username,
-                Password = passwordHash, 
+                Password = passwordHash,
                 Email = registerDTO.Email,
                 FullName = registerDTO.FullName,
                 isAdmin = false

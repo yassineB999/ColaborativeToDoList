@@ -1,6 +1,8 @@
 using CollaborativeToDoList.Data;
+using CollaborativeToDoList.Repository.TodoListsRepos;
 using CollaborativeToDoList.Repository.UsersRepos;
-using CollaborativeToDoList.Service;
+using CollaborativeToDoList.Service.TodoListsService;
+using CollaborativeToDoList.Service.UserService;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
@@ -32,10 +34,13 @@ namespace CollaborativeToDoList
             builder.Services.AddAuthorization(options =>
             {
                 options.AddPolicy("AdminOnly", policy => policy.RequireClaim("IsAdmin", "True"));
+                options.AddPolicy("UserAdmin", policy => policy.RequireClaim("IsAdmin", "False"));
             });
 
             builder.Services.AddScoped<IUsersRepository, UsersRepositoryImp>();
             builder.Services.AddScoped<IUserService, UserServiceImp>();
+            builder.Services.AddScoped<ITodoListsRepository, TodoListsRepositoryImp>();
+            builder.Services.AddScoped<ITodoListsService, TodoListsServiceImp>();
 
             // Register IHttpContextAccessor to access HttpContext in services
             builder.Services.AddHttpContextAccessor();
