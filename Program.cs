@@ -98,7 +98,7 @@ namespace CollaborativeToDoList
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=index}/{action=Home}/{id?}");
+                pattern: "{controller=AUth}/{action=Login}/{id?}");
         }
     }
 }

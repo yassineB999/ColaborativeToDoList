@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "jZnbcYxjKpcCzLu9Fl2RZ7Q3qYvH/Pu3U8vbTFLjczI=",
+  "Hash": "PLQrLeXBKrhUxowGdW4C9sdkk1PbdiyKoOeheSq8SWk=",
   "Source": "CollaborativeToDoList",
   "BasePath": "_content/CollaborativeToDoList",
   "Mode": "Default",
@@ -15,5 +15,44 @@
       "Pattern": "**"
     }
   ],
-  "Assets": []
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\wwwroot\\css\\output.css",
+      "SourceId": "CollaborativeToDoList",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\wwwroot\\",
+      "BasePath": "_content/CollaborativeToDoList",
+      "RelativePath": "css/output.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\output.css"
+    },
+    {
+      "Identity": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\wwwroot\\css\\tailwind.css",
+      "SourceId": "CollaborativeToDoList",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\wwwroot\\",
+      "BasePath": "_content/CollaborativeToDoList",
+      "RelativePath": "css/tailwind.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\tailwind.css"
+    }
+  ]
 }

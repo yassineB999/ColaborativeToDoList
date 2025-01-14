@@ -1,0 +1,29 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\wwwroot\\css\\output.css",
+      "PackagePath": "staticwebassets\\css\\output.css"
+    },
+    {
+      "Id": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\wwwroot\\css\\tailwind.css",
+      "PackagePath": "staticwebassets\\css\\tailwind.css"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.CollaborativeToDoList.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.CollaborativeToDoList.props",
+      "PackagePath": "build\\CollaborativeToDoList.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.CollaborativeToDoList.props",
+      "PackagePath": "buildMultiTargeting\\CollaborativeToDoList.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.CollaborativeToDoList.props",
+      "PackagePath": "buildTransitive\\CollaborativeToDoList.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
