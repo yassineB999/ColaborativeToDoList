@@ -1,4 +1,4 @@
-﻿using CollaborativeToDoList.ViewModels.UsersModels.request;
+using CollaborativeToDoList.ViewModels.UsersModels.request;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
@@ -54,11 +54,11 @@ namespace CollaborativeToDoList.Controllers
             return View(registerDTO);
         }
 
+
         [HttpPost]
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-
             return RedirectToAction("Login");
         }
 

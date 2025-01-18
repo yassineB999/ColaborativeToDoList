@@ -37,6 +37,15 @@ namespace CollaborativeToDoList
                 options.AddPolicy("UserAdmin", policy => policy.RequireClaim("IsAdmin", "False"));
             });
 
+            /*
+            builder.Services.AddAntiforgery(options =>
+            {
+                options.FormFieldName = "__RequestVerificationToken"; // Par défaut
+                options.HeaderName = "X-CSRF-TOKEN"; // Pour les requêtes AJAX
+                options.Cookie.Name = "MyAntiforgeryCookie";
+            });
+*/
+
             builder.Services.AddScoped<IUsersRepository, UsersRepositoryImp>();
             builder.Services.AddScoped<IUserService, UserServiceImp>();
             builder.Services.AddScoped<ITodoListsRepository, TodoListsRepositoryImp>();
@@ -98,7 +107,7 @@ namespace CollaborativeToDoList
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=AUth}/{action=Login}/{id?}");
+                pattern: "{controller=Auth}/{action=Login}/{id?}");
         }
     }
 }

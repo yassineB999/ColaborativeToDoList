@@ -6,7 +6,9 @@
 <div class="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-600">
     <div class="bg-white p-8 rounded-lg shadow-2xl w-full max-w-md">
         <h1 class="text-4xl font-bold text-gray-800 text-center">Login</h1>
-        <form asp-action="Login" method="post" class="space-y-6">
+
+        <!-- Login Form -->
+        <form id="loginForm" asp-action="Login" method="post" class="space-y-6">
             <div>
                 <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
                 <input type="email" id="email" name="Email" required
@@ -24,5 +26,19 @@
                 Log In
             </button>
         </form>
+
+        <!-- Link to the Register page -->
+        <div class="mt-6 text-center">
+            <p class="text-sm text-gray-600">
+                Don't have an account
+                <a href="@Url.Action("Register", "Auth")" class="font-medium text-indigo-600 hover:text-indigo-500">Register here</a>
+
+            </p>
+        </div>
     </div>
 </div>
+
+<!-- Include the login.js script -->
+@section Scripts {
+    <script src="~/js/Auth.js"></script>
+}

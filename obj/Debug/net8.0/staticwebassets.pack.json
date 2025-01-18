@@ -9,6 +9,14 @@
       "PackagePath": "staticwebassets\\css\\tailwind.css"
     },
     {
+      "Id": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\wwwroot\\js\\Auth.js",
+      "PackagePath": "staticwebassets\\js\\Auth.js"
+    },
+    {
+      "Id": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\wwwroot\\js\\TodoHome.js",
+      "PackagePath": "staticwebassets\\js\\TodoHome.js"
+    },
+    {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.CollaborativeToDoList.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

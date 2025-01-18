@@ -11,7 +11,7 @@ namespace CollaborativeToDoList.Models
 
         public string Title { get; set; }
 
-        public string SharedUrl { get; set; }
+        public string? SharedUrl { get; set; }
 
         [ForeignKey("Users")]
 

@@ -64,9 +64,13 @@
             <div class="text-center">
                 <p class="text-sm text-gray-600">
                     Already have an account?
-                    <a asp-action="Login" class="font-medium text-indigo-600 hover:text-indigo-500">Login here</a>
+                    <a href="@Url.Action("Login", "Auth")" asp-action="Login" class="font-medium text-indigo-600 hover:text-indigo-500">Login here</a>
                 </p>
             </div>
         </form>
     </div>
 </div>
+
+@section Scripts {
+    <script src="~/js/Auth.js"></script>
+}

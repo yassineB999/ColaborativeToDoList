@@ -6,7 +6,8 @@ namespace CollaborativeToDoList.ViewModels.TodoListViewModels.response
         (
            int Id,
            string Title,
-           Users Owner
+           int OwnerId,
+           string OwnerName
 
         )
     {

@@ -28,24 +28,27 @@ namespace CollaborativeToDoList.Service.TodoListsService
                 throw new InvalidOperationException("User ID not found in claims or invalid.");
             }
 
-            // Create a new TodoLists entity
             var todoList = new TodoLists
             {
                 Title = createTodoListsDTO.Title,
                 UsersId = UsersId,
-                SharedUrl = ""
+                SharedUrl = null 
             };
 
-            await _todoListsRepository.CreateTodoList(todoList);
+            var createdTodoList = await _todoListsRepository.CreateTodoList(todoList);
 
             var owner = await _usersRepository.GetUserById(UsersId);
-
             if (owner == null)
             {
                 throw new InvalidOperationException("Owner user not found.");
             }
 
-            var responseDto = new ResponseTodoListsDTO(todoList.Id, todoList.Title, owner);
+            var responseDto = new ResponseTodoListsDTO(
+                Id: createdTodoList.Id,
+                Title: createdTodoList.Title,
+                OwnerId: owner.Id,
+                OwnerName: owner.FullName
+            );
 
             return responseDto;
         }
@@ -60,14 +63,14 @@ namespace CollaborativeToDoList.Service.TodoListsService
             }
 
             var userIdClaim = _httpContextAccessor.HttpContext?.User.FindFirst("UserId");
-            if (userIdClaim == null || !int.TryParse(userIdClaim.Value, out int UsersId))
+            if (userIdClaim == null || !int.TryParse(userIdClaim.Value, out int currentUserId))
             {
                 throw new InvalidOperationException("User ID not found in claims or invalid.");
             }
 
-            if(todoList.UsersId.ToString() != userIdClaim.Value.ToString())
+            if (todoList.UsersId != currentUserId)
             {
-                throw new ArgumentException("something wend wrong");
+                throw new UnauthorizedAccessException("You do not have permission to delete this Todo list.");
             }
 
             await _todoListsRepository.DeleteTodoList(todoList.Id);
@@ -81,29 +84,32 @@ namespace CollaborativeToDoList.Service.TodoListsService
                 throw new InvalidOperationException("User ID not found or invalid.");
             }
 
-            var MyTodoLists = await _todoListsRepository.GetAllMyTodoList(currentUserId);
+            var myTodoLists = await _todoListsRepository.GetAllMyTodoList(currentUserId);
 
             var owner = await _usersRepository.GetUserById(currentUserId);
-
-            List<ResponseTodoListsDTO> myDATA = new List<ResponseTodoListsDTO>();
-
-            foreach (var item in MyTodoLists)
+            if (owner == null)
             {
-                myDATA.Add(new ResponseTodoListsDTO(item.Id, item.Title, owner));
+                throw new InvalidOperationException("Owner user not found.");
             }
 
-            return myDATA;
+            var myData = myTodoLists
+                .Select(item => new ResponseTodoListsDTO(
+                    Id: item.Id,
+                    Title: item.Title,
+                    OwnerId: owner.Id,
+                    OwnerName: owner.FullName
+                ))
+                .ToList();
 
+            return myData;
         }
-
-
 
         public async Task<ResponseTodoListsDTO> GetTodoListById(int id)
         {
             var todoList = await _todoListsRepository.GetTodoListById(id);
             if (todoList == null)
             {
-                throw new ArgumentException("Todo list not found.");
+                throw new KeyNotFoundException("Todo list not found.");
             }
 
             var userIdClaim = _httpContextAccessor.HttpContext?.User.FindFirst("UserId");
@@ -112,14 +118,23 @@ namespace CollaborativeToDoList.Service.TodoListsService
                 throw new InvalidOperationException("User ID not found or invalid.");
             }
 
-            if (todoList.UsersId.ToString() != userIdClaim.Value.ToString())
+            if (todoList.UsersId != currentUserId)
             {
-                throw new ArgumentException("something wend wrong");
-
+                throw new UnauthorizedAccessException("You do not have permission to access this to-do list.");
             }
 
-            var ownerDto = await _usersRepository.GetUserById(currentUserId);
-            var responseDto = new ResponseTodoListsDTO(todoList.Id, todoList.Title, ownerDto);
+            var owner = await _usersRepository.GetUserById(todoList.UsersId);
+            if (owner == null)
+            {
+                throw new InvalidOperationException("Owner user not found.");
+            }
+
+            var responseDto = new ResponseTodoListsDTO(
+                Id: todoList.Id,
+                Title: todoList.Title,
+                OwnerId: owner.Id,
+                OwnerName: owner.FullName
+            );
 
             return responseDto;
         }
@@ -129,7 +144,7 @@ namespace CollaborativeToDoList.Service.TodoListsService
             var todoList = await _todoListsRepository.GetTodoListById(updateTodoListDTO.Id);
             if (todoList == null)
             {
-                throw new ArgumentException("Todo list not found.");
+                throw new KeyNotFoundException("Todo list not found.");
             }
 
             var userIdClaim = _httpContextAccessor.HttpContext?.User.FindFirst("UserId");
@@ -138,18 +153,27 @@ namespace CollaborativeToDoList.Service.TodoListsService
                 throw new InvalidOperationException("User ID not found or invalid.");
             }
 
-            if (todoList.UsersId.ToString() != userIdClaim.Value.ToString())
+            if (todoList.UsersId != currentUserId)
             {
-                throw new ArgumentException("something wend wrong");
+                throw new UnauthorizedAccessException("You do not have permission to update this to-do list.");
             }
 
             todoList.Title = updateTodoListDTO.Title;
 
             await _todoListsRepository.UpdateTodoList(todoList);
 
-            var ownerDto = await _usersRepository.GetUserById(currentUserId);
+            var owner = await _usersRepository.GetUserById(todoList.UsersId);
+            if (owner == null)
+            {
+                throw new InvalidOperationException("Owner user not found.");
+            }
 
-            var responseDto = new ResponseTodoListsDTO(todoList.Id, todoList.Title, ownerDto);
+            var responseDto = new ResponseTodoListsDTO(
+                Id: todoList.Id,
+                Title: todoList.Title,
+                OwnerId: owner.Id,
+                OwnerName: owner.FullName
+            );
 
             return responseDto;
         }

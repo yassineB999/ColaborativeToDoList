@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "PLQrLeXBKrhUxowGdW4C9sdkk1PbdiyKoOeheSq8SWk=",
+  "Hash": "Xq6L72ClmNK//yEh3oOU1G1L4icmy5vNhwXLGQmHbDE=",
   "Source": "CollaborativeToDoList",
   "BasePath": "_content/CollaborativeToDoList",
   "Mode": "Default",
@@ -53,6 +53,44 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\tailwind.css"
+    },
+    {
+      "Identity": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\wwwroot\\js\\Auth.js",
+      "SourceId": "CollaborativeToDoList",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\wwwroot\\",
+      "BasePath": "_content/CollaborativeToDoList",
+      "RelativePath": "js/Auth.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Auth.js"
+    },
+    {
+      "Identity": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\wwwroot\\js\\TodoHome.js",
+      "SourceId": "CollaborativeToDoList",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\wwwroot\\",
+      "BasePath": "_content/CollaborativeToDoList",
+      "RelativePath": "js/TodoHome.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\TodoHome.js"
     }
   ]
 }

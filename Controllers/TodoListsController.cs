@@ -5,10 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CollaborativeToDoList.Controllers
 {
-    [Controller]
+    [Authorize(Policy = "UserAdmin")] 
     public class TodoListsController : Controller
     {
-
         private readonly ITodoListsService _todoListsService;
 
         public TodoListsController(ITodoListsService todoListsService)
@@ -16,67 +15,48 @@ namespace CollaborativeToDoList.Controllers
             _todoListsService = todoListsService;
         }
 
-        [HttpGet("TodoHome")]
-        [Authorize(Policy = "UserAdmin")]
+        [HttpGet]
+        //[Route("")]
         public async Task<IActionResult> TodoHome()
         {
             var todoLists = await _todoListsService.GetAllMyTodoLists();
             return View(todoLists);
         }
 
-        [HttpGet("GetAllMyTodoLists")]
-        [Authorize(Policy = "UserAdmin")]
-        public async Task<IActionResult> GetAllMyTodoLists()
-        {
-            var todoLists = await _todoListsService.GetAllMyTodoLists();
-            return Ok(todoLists);
-        }
-
-        [HttpPost("Create")]
-        [Authorize(Policy = "UserAdmin")]
-        public async Task<IActionResult> Create(CreateTodoListsDTO dto)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([FromBody] CreateTodoListsDTO dto)
         {
             if (!ModelState.IsValid)
             {
-                return View("TodoHome");
+                return Json(new { success = false, message = "Invalid data." });
             }
 
             await _todoListsService.CreateTodoList(dto);
-            return RedirectToAction(nameof(TodoHome));
+            return Json(new { success = true, message = "Todo list created successfully." });
         }
 
-        [HttpGet("GetTodoListById/{id}")]
-        [Authorize(Policy = "UserAdmin")]
-        public async Task<IActionResult> GetTodoListById(int id)
-        {
-            var todoList = await _todoListsService.GetTodoListById(id);
-            if (todoList == null)
-            {
-                return NotFound();
-            }
-            return Ok(todoList);
-        }
 
-        [HttpPut("Update")]
-        [Authorize(Policy = "UserAdmin")]
-        public async Task<IActionResult> Update(UpdateTodoListDTO dto)
+        [HttpPut]
+        [ValidateAntiForgeryToken] // Add anti-forgery token validation
+        public async Task<IActionResult> Update([FromBody] UpdateTodoListDTO dto)
         {
             if (!ModelState.IsValid)
             {
-                return View("TodoHome");
+                
+                return Json(new { success = false, message = "Invalid data." });
             }
 
             await _todoListsService.UpdateTodoList(dto);
-            return RedirectToAction(nameof(TodoHome));
+            return Json(new { success = true, message = "Todo list updated successfully." });
         }
 
-        [HttpDelete("Delete/{id}")]
-        [Authorize(Policy = "UserAdmin")]
-        public async Task<IActionResult> DeleteTodoList(DeletetodoListsDTO deletetodoListsDTO)
+        [HttpDelete]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Delete([FromBody] DeletetodoListsDTO dto)
         {
-            var deletetodoLists = _todoListsService.DeleteTodoList(deletetodoListsDTO);
-            await _todoListsService.DeleteTodoList(deletetodoListsDTO);
-            return NoContent();
+            await _todoListsService.DeleteTodoList(dto);
+            return Json(new { success = true, message = "Todo list deleted successfully." });
         }
     }
 }
