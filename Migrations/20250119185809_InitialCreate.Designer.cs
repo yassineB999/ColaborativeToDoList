@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CollaborativeToDoList.Migrations
 {
     [DbContext(typeof(TodoListDbContext))]
-    [Migration("20250113163910_UpdateMigration")]
-    partial class UpdateMigration
+    [Migration("20250119185809_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -53,17 +53,17 @@ namespace CollaborativeToDoList.Migrations
                     b.Property<bool>("CanEdit")
                         .HasColumnType("bit");
 
-                    b.Property<int?>("TodoListsId")
+                    b.Property<int>("TodoListId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("UsersId")
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("TodoListsId");
+                    b.HasIndex("TodoListId");
 
-                    b.HasIndex("UsersId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Collaborators");
                 });
@@ -76,7 +76,7 @@ namespace CollaborativeToDoList.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("CategoriesId1")
+                    b.Property<int>("CategoriesId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedAt")
@@ -89,14 +89,14 @@ namespace CollaborativeToDoList.Migrations
                     b.Property<DateTime>("EndedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("TodoListsId")
+                    b.Property<int>("TodoListId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoriesId1");
+                    b.HasIndex("CategoriesId");
 
-                    b.HasIndex("TodoListsId");
+                    b.HasIndex("TodoListId");
 
                     b.ToTable("Tasks");
                 });
@@ -109,20 +109,19 @@ namespace CollaborativeToDoList.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("OwnerId")
-                        .HasColumnType("int");
-
                     b.Property<string>("SharedUrl")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("OwnerId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("TodoLists");
                 });
@@ -161,35 +160,51 @@ namespace CollaborativeToDoList.Migrations
 
             modelBuilder.Entity("CollaborativeToDoList.Models.Collaborators", b =>
                 {
-                    b.HasOne("CollaborativeToDoList.Models.TodoLists", null)
+                    b.HasOne("CollaborativeToDoList.Models.TodoLists", "TodoLists")
                         .WithMany("Collaborators")
-                        .HasForeignKey("TodoListsId");
+                        .HasForeignKey("TodoListId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
-                    b.HasOne("CollaborativeToDoList.Models.Users", null)
+                    b.HasOne("CollaborativeToDoList.Models.Users", "Users")
                         .WithMany("Collaborators")
-                        .HasForeignKey("UsersId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("TodoLists");
+
+                    b.Navigation("Users");
                 });
 
             modelBuilder.Entity("CollaborativeToDoList.Models.Tasks", b =>
                 {
-                    b.HasOne("CollaborativeToDoList.Models.Categories", null)
+                    b.HasOne("CollaborativeToDoList.Models.Categories", "Categories")
                         .WithMany("Tasks")
-                        .HasForeignKey("CategoriesId1");
+                        .HasForeignKey("CategoriesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasOne("CollaborativeToDoList.Models.TodoLists", null)
+                    b.HasOne("CollaborativeToDoList.Models.TodoLists", "TodoLists")
                         .WithMany("Tasks")
-                        .HasForeignKey("TodoListsId");
+                        .HasForeignKey("TodoListId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Categories");
+
+                    b.Navigation("TodoLists");
                 });
 
             modelBuilder.Entity("CollaborativeToDoList.Models.TodoLists", b =>
                 {
-                    b.HasOne("CollaborativeToDoList.Models.Users", "users")
+                    b.HasOne("CollaborativeToDoList.Models.Users", "Users")
                         .WithMany("TodoLists")
-                        .HasForeignKey("OwnerId")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("users");
+                    b.Navigation("Users");
                 });
 
             modelBuilder.Entity("CollaborativeToDoList.Models.Categories", b =>

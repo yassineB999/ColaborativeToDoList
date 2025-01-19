@@ -17,5 +17,35 @@ namespace CollaborativeToDoList.Data
 
         public DbSet<Collaborators> Collaborators { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Collaborators>()
+             .HasOne(c => c.Users)
+             .WithMany(u => u.Collaborators)
+             .HasForeignKey(c => c.UserId)
+             .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Collaborators>()
+                .HasOne(c => c.TodoLists)
+                .WithMany(t => t.Collaborators)
+                .HasForeignKey(c => c.TodoListId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Tasks>()
+                .HasOne(t => t.TodoLists)
+                .WithMany(t => t.Tasks)
+                .HasForeignKey(t => t.TodoListId);
+
+            modelBuilder.Entity<Tasks>()
+                .HasOne(t => t.Categories)
+                .WithMany(c => c.Tasks)
+                .HasForeignKey(t => t.CategoriesId);
+
+            modelBuilder.Entity<TodoLists>()
+                .HasOne(t => t.Users)
+                .WithMany(u => u.TodoLists)
+                .HasForeignKey(t => t.UserId);
+        }
+
     }
 }

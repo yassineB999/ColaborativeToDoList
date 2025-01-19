@@ -1,4 +1,6 @@
+using CollaborativeToDoList.Service.TasksService;
 using CollaborativeToDoList.Service.TodoListsService;
+using CollaborativeToDoList.ViewModels.TasksViewModels.request;
 using CollaborativeToDoList.ViewModels.TodoListViewModels.request;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -9,10 +11,12 @@ namespace CollaborativeToDoList.Controllers
     public class TodoListsController : Controller
     {
         private readonly ITodoListsService _todoListsService;
+        private readonly ITasksService _tasksService;
 
-        public TodoListsController(ITodoListsService todoListsService)
+        public TodoListsController(ITodoListsService todoListsService, ITasksService tasksService)
         {
             _todoListsService = todoListsService;
+            _tasksService = tasksService;
         }
 
         [HttpGet]
@@ -21,6 +25,13 @@ namespace CollaborativeToDoList.Controllers
         {
             var todoLists = await _todoListsService.GetAllMyTodoLists();
             return View(todoLists);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> TodoListDetails(int Id)
+        {
+            var tasks = await _tasksService.GetAllTasksInTodoList(new GetAlLTasksDTO(Id));
+            return View(tasks);
         }
 
         [HttpPost]
@@ -38,7 +49,7 @@ namespace CollaborativeToDoList.Controllers
 
 
         [HttpPut]
-        [ValidateAntiForgeryToken] // Add anti-forgery token validation
+        [ValidateAntiForgeryToken] 
         public async Task<IActionResult> Update([FromBody] UpdateTodoListDTO dto)
         {
             if (!ModelState.IsValid)

@@ -1,5 +1,6 @@
 ﻿using CollaborativeToDoList.Data;
 using CollaborativeToDoList.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace CollaborativeToDoList.Repository.TasksRepos
 {
@@ -12,29 +13,75 @@ namespace CollaborativeToDoList.Repository.TasksRepos
         {
             _db = db;
         }
-        public Task<Tasks> CreateTask(Tasks task)
+        public async Task<Tasks> CreateTask(Tasks task)
         {
-            throw new NotImplementedException();
+            if (task == null)
+            {
+                throw new ArgumentNullException(nameof(task));
+            }
+
+            _db.Tasks.Add(task);
+            await _db.SaveChangesAsync();
+            return task;
         }
 
-        public Task<Tasks> DeleteTask(int id)
+        public async Task<Tasks> DeleteTask(int id)
         {
-            throw new NotImplementedException();
+            var task = await _db.Tasks.FindAsync(id);
+            if (task == null)
+            {
+                throw new KeyNotFoundException("Task not found.");
+            }
+
+            _db.Tasks.Remove(task);
+            await _db.SaveChangesAsync();
+            return task;
         }
 
-        public Task<IEnumerable<Tasks>> GetAllTask()
+        public async Task<Tasks> GetTaskById(int id)
         {
-            throw new NotImplementedException();
+            var task = await _db.Tasks
+                 .Include(t => t.TodoLists) 
+                 .Include(t => t.Categories) 
+                 .FirstOrDefaultAsync(t => t.Id == id);
+
+            if (task == null)
+            {
+                throw new KeyNotFoundException("Task not found.");
+            }
+
+            return task;
         }
 
-        public Task<Tasks> GetTaskById(int id)
+        public async Task<IEnumerable<Tasks>> GetTasksByTodoListId(int todoListId)
         {
-            throw new NotImplementedException();
+            var tasks = await _db.Tasks
+             .Include(t => t.Categories) 
+             .Where(t => t.TodoListId == todoListId)
+             .ToListAsync();
+            return tasks;
         }
 
-        public Task<Tasks> UpdateTask(Tasks task)
+        public async Task<Tasks> UpdateTask(Tasks task)
         {
-            throw new NotImplementedException();
+            if (task == null)
+            {
+                throw new ArgumentNullException(nameof(task));
+            }
+
+            var existingTask = await _db.Tasks.FindAsync(task.Id);
+            if (existingTask == null)
+            {
+                throw new KeyNotFoundException("Task not found.");
+            }
+
+            existingTask.Description = task.Description;
+            existingTask.EndedAt = task.EndedAt;
+            existingTask.CategoriesId = task.CategoriesId;
+
+            _db.Tasks.Update(existingTask);
+            await _db.SaveChangesAsync();
+            return existingTask;
         }
     }
 }

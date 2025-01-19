@@ -12,14 +12,12 @@ namespace CollaborativeToDoList.Models
         public bool CanEdit { get; set; }
 
         [ForeignKey("Users")]
-
-        public int userId;
-        public Users users;
+        public int UserId { get; set; }
+        public Users Users { get; set; }
 
         [ForeignKey("TodoLists")]
-
-        public int todoListId;
-        public TodoLists todoLists;
+        public int TodoListId { get; set; }
+        public TodoLists TodoLists { get; set; }
 
     }
 }

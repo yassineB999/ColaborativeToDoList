@@ -1,0 +1,32 @@
+﻿@model IEnumerable<CollaborativeToDoList.ViewModels.TasksViewModels.response.ResponseTasksDTO>
+
+@{
+    ViewData["Title"] = "TodoListDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Tasks for To-Do List</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Description</th>
+            <th>Created At</th>
+            <th>Ended At</th>
+            <th>Category</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var task in Model)
+        {
+            <tr>
+                <td>@task.Id</td>
+                <td>@task.Description</td>
+                <td>@task.CreatedAt.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                <td>@(task.EndedAt?.ToString("yyyy-MM-dd HH:mm:ss") ?? "Not completed")</td>
+                <td>@task.CategoryName</td>
+            </tr>
+        }
+    </tbody>
+</table>

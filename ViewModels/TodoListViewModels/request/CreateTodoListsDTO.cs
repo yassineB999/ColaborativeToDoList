@@ -10,7 +10,7 @@ namespace CollaborativeToDoList.ViewModels.TodoListViewModels.request
         [NotNull]
         [Required(ErrorMessage = " Title is Required ")]
         string Title,
-        string? SharedUrl 
+        string? SharedUrl
         )
     { }
 }

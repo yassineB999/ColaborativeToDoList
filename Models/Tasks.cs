@@ -16,12 +16,11 @@ namespace CollaborativeToDoList.Models
         public DateTime EndedAt { get; set; }
 
         [ForeignKey("TodoLists")]
-        public int todoListId;
-        public TodoLists todoLists;
+        public int TodoListId { get; set; }
+        public TodoLists TodoLists { get; set; }
 
         [ForeignKey("Categories")]
-
-        public int CategoriesId;
-        public Categories categories;
+        public int CategoriesId { get; set; }
+        public Categories Categories { get; set; }
     }
 }

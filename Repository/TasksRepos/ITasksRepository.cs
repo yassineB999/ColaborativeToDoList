@@ -12,9 +12,7 @@ namespace CollaborativeToDoList.Repository.TasksRepos
 
         Task<Tasks> GetTaskById(int id);
 
-        Task<IEnumerable<Tasks>> GetAllTask();
-
-        Task<Tasks> GetTasksByTodoListId(int id);
+        Task<IEnumerable<Tasks>> GetTasksByTodoListId(int todoListId);
 
 
     }

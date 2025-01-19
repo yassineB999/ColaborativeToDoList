@@ -14,12 +14,10 @@ namespace CollaborativeToDoList.Models
         public string? SharedUrl { get; set; }
 
         [ForeignKey("Users")]
+        public int UserId { get; set; }
+        public Users Users { get; set; }
 
-        public int UsersId { get; set; }
-
-        public Users users { get; set; }
-
-        public ICollection<Collaborators> Collaborators { get; set; } = [];
-        public ICollection<Tasks> Tasks { get; set; } = [];
+        public ICollection<Collaborators> Collaborators { get; set; } = new List<Collaborators>();
+        public ICollection<Tasks> Tasks { get; set; } = new List<Tasks>();
     }
 }

@@ -11,6 +11,6 @@ namespace CollaborativeToDoList.Models
 
         public string Name { get; set; }
 
-        public ICollection<Tasks> Tasks { get; set; } = [];
+        public ICollection<Tasks> Tasks { get; set; } = new List<Tasks>();
     }
 }

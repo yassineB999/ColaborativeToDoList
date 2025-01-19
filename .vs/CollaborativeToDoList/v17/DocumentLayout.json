@@ -1,56 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|c:\\users\\hp_y\\source\\repos\\collaborativetodolist\\service\\tasksservice\\tasksserviceimp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|solutionrelative:service\\tasksservice\\tasksserviceimp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|c:\\users\\hp_y\\source\\repos\\collaborativetodolist\\repository\\tasksrepos\\itasksrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|solutionrelative:repository\\tasksrepos\\itasksrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|c:\\users\\hp_y\\source\\repos\\collaborativetodolist\\service\\tasksservice\\itasksservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|solutionrelative:service\\tasksservice\\itasksservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|c:\\users\\hp_y\\source\\repos\\collaborativetodolist\\service\\userservice\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|solutionrelative:service\\userservice\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|c:\\users\\hp_y\\source\\repos\\collaborativetodolist\\repository\\todolistsrepos\\todolistsrepositoryimp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|solutionrelative:repository\\todolistsrepos\\todolistsrepositoryimp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|c:\\users\\hp_y\\source\\repos\\collaborativetodolist\\repository\\tasksrepos\\tasksrepositoryimp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|solutionrelative:repository\\tasksrepos\\tasksrepositoryimp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|c:\\users\\hp_y\\source\\repos\\collaborativetodolist\\repository\\todolistsrepos\\itodolistsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|solutionrelative:repository\\todolistsrepos\\itodolistsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|c:\\users\\hp_y\\source\\repos\\collaborativetodolist\\models\\todolists.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|solutionrelative:models\\todolists.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|c:\\users\\hp_y\\source\\repos\\collaborativetodolist\\models\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|solutionrelative:models\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|c:\\users\\hp_y\\source\\repos\\collaborativetodolist\\models\\tasks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|solutionrelative:models\\tasks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|c:\\users\\hp_y\\source\\repos\\collaborativetodolist\\models\\collaborators.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|solutionrelative:models\\collaborators.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|c:\\users\\hp_y\\source\\repos\\collaborativetodolist\\models\\categories.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|solutionrelative:models\\categories.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 1,
@@ -58,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -67,162 +18,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "TasksServiceImp.cs",
-              "DocumentMoniker": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\Service\\TasksService\\TasksServiceImp.cs",
-              "RelativeDocumentMoniker": "Service\\TasksService\\TasksServiceImp.cs",
-              "ToolTip": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\Service\\TasksService\\TasksServiceImp.cs",
-              "RelativeToolTip": "Service\\TasksService\\TasksServiceImp.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-18T17:27:59.966Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ITasksService.cs",
-              "DocumentMoniker": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\Service\\TasksService\\ITasksService.cs",
-              "RelativeDocumentMoniker": "Service\\TasksService\\ITasksService.cs",
-              "ToolTip": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\Service\\TasksService\\ITasksService.cs",
-              "RelativeToolTip": "Service\\TasksService\\ITasksService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAdAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-18T17:19:02.638Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IUserService.cs",
-              "DocumentMoniker": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\Service\\UserService\\IUserService.cs",
-              "RelativeDocumentMoniker": "Service\\UserService\\IUserService.cs",
-              "ToolTip": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\Service\\UserService\\IUserService.cs",
-              "RelativeToolTip": "Service\\UserService\\IUserService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-18T17:18:05.915Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "TodoListsRepositoryImp.cs",
-              "DocumentMoniker": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\Repository\\TodoListsRepos\\TodoListsRepositoryImp.cs",
-              "RelativeDocumentMoniker": "Repository\\TodoListsRepos\\TodoListsRepositoryImp.cs",
-              "ToolTip": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\Repository\\TodoListsRepos\\TodoListsRepositoryImp.cs",
-              "RelativeToolTip": "Repository\\TodoListsRepos\\TodoListsRepositoryImp.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-18T17:16:28.518Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ITodoListsRepository.cs",
-              "DocumentMoniker": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\Repository\\TodoListsRepos\\ITodoListsRepository.cs",
-              "RelativeDocumentMoniker": "Repository\\TodoListsRepos\\ITodoListsRepository.cs",
-              "ToolTip": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\Repository\\TodoListsRepos\\ITodoListsRepository.cs",
-              "RelativeToolTip": "Repository\\TodoListsRepos\\ITodoListsRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAABCAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-18T17:10:10.054Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "TasksRepositoryImp.cs",
-              "DocumentMoniker": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\Repository\\TasksRepos\\TasksRepositoryImp.cs",
-              "RelativeDocumentMoniker": "Repository\\TasksRepos\\TasksRepositoryImp.cs",
-              "ToolTip": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\Repository\\TasksRepos\\TasksRepositoryImp.cs",
-              "RelativeToolTip": "Repository\\TasksRepos\\TasksRepositoryImp.cs",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAxwA0AAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-18T17:09:31.568Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ITasksRepository.cs",
-              "DocumentMoniker": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\Repository\\TasksRepos\\ITasksRepository.cs",
-              "RelativeDocumentMoniker": "Repository\\TasksRepos\\ITasksRepository.cs",
-              "ToolTip": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\Repository\\TasksRepos\\ITasksRepository.cs",
-              "RelativeToolTip": "Repository\\TasksRepos\\ITasksRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAxAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-18T17:09:08.756Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Users.cs",
-              "DocumentMoniker": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\Models\\Users.cs",
-              "RelativeDocumentMoniker": "Models\\Users.cs",
-              "ToolTip": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\Models\\Users.cs",
-              "RelativeToolTip": "Models\\Users.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-18T17:05:01.647Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Collaborators.cs",
-              "DocumentMoniker": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\Models\\Collaborators.cs",
-              "RelativeDocumentMoniker": "Models\\Collaborators.cs",
-              "ToolTip": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\Models\\Collaborators.cs",
-              "RelativeToolTip": "Models\\Collaborators.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-18T17:04:56.83Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Categories.cs",
-              "DocumentMoniker": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\Models\\Categories.cs",
-              "RelativeDocumentMoniker": "Models\\Categories.cs",
-              "ToolTip": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\Models\\Categories.cs",
-              "RelativeToolTip": "Models\\Categories.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-18T17:04:18.44Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "TodoLists.cs",
-              "DocumentMoniker": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\Models\\TodoLists.cs",
-              "RelativeDocumentMoniker": "Models\\TodoLists.cs",
-              "ToolTip": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\Models\\TodoLists.cs",
-              "RelativeToolTip": "Models\\TodoLists.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-18T17:04:13.865Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Tasks.cs",
-              "DocumentMoniker": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\Models\\Tasks.cs",
-              "RelativeDocumentMoniker": "Models\\Tasks.cs",
-              "ToolTip": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\Models\\Tasks.cs",
-              "RelativeToolTip": "Models\\Tasks.cs",
-              "ViewState": "AQIAAAQAAAAAAAAAAAAkwBIAAAAeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-18T17:03:48.087Z",
-              "EditorCaption": ""
             }
           ]
         },

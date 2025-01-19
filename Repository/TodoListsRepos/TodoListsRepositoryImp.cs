@@ -38,7 +38,7 @@ namespace CollaborativeToDoList.Repository.TodoListsRepos
         public async Task<IEnumerable<TodoLists>> GetAllMyTodoList(int userId)
         {
              return await _db.TodoLists
-            .Where(tl => tl.UsersId == userId)
+            .Where(tl => tl.UserId == userId)
             .ToListAsync();
         }
 

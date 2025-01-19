@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace CollaborativeToDoList.Migrations
 {
     /// <inheritdoc />
-    public partial class InitalCreateion : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -30,9 +30,9 @@ namespace CollaborativeToDoList.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FullName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FullName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     isAdmin = table.Column<bool>(type: "bit", nullable: false)
                 },
@@ -48,17 +48,18 @@ namespace CollaborativeToDoList.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    SharedUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    UsersId = table.Column<int>(type: "int", nullable: true)
+                    SharedUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UserId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_TodoLists", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_TodoLists_Users_UsersId",
-                        column: x => x.UsersId,
+                        name: "FK_TodoLists_Users_UserId",
+                        column: x => x.UserId,
                         principalTable: "Users",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -68,22 +69,24 @@ namespace CollaborativeToDoList.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CanEdit = table.Column<bool>(type: "bit", nullable: false),
-                    TodoListsId = table.Column<int>(type: "int", nullable: true),
-                    UsersId = table.Column<int>(type: "int", nullable: true)
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    TodoListId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Collaborators", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Collaborators_TodoLists_TodoListsId",
-                        column: x => x.TodoListsId,
+                        name: "FK_Collaborators_TodoLists_TodoListId",
+                        column: x => x.TodoListId,
                         principalTable: "TodoLists",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Collaborators_Users_UsersId",
-                        column: x => x.UsersId,
+                        name: "FK_Collaborators_Users_UserId",
+                        column: x => x.UserId,
                         principalTable: "Users",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -95,48 +98,50 @@ namespace CollaborativeToDoList.Migrations
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     EndedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CategoriesId1 = table.Column<int>(type: "int", nullable: true),
-                    TodoListsId = table.Column<int>(type: "int", nullable: true)
+                    TodoListId = table.Column<int>(type: "int", nullable: false),
+                    CategoriesId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Tasks", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Tasks_Categories_CategoriesId1",
-                        column: x => x.CategoriesId1,
+                        name: "FK_Tasks_Categories_CategoriesId",
+                        column: x => x.CategoriesId,
                         principalTable: "Categories",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Tasks_TodoLists_TodoListsId",
-                        column: x => x.TodoListsId,
+                        name: "FK_Tasks_TodoLists_TodoListId",
+                        column: x => x.TodoListId,
                         principalTable: "TodoLists",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Collaborators_TodoListsId",
+                name: "IX_Collaborators_TodoListId",
                 table: "Collaborators",
-                column: "TodoListsId");
+                column: "TodoListId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Collaborators_UsersId",
+                name: "IX_Collaborators_UserId",
                 table: "Collaborators",
-                column: "UsersId");
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Tasks_CategoriesId1",
+                name: "IX_Tasks_CategoriesId",
                 table: "Tasks",
-                column: "CategoriesId1");
+                column: "CategoriesId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Tasks_TodoListsId",
+                name: "IX_Tasks_TodoListId",
                 table: "Tasks",
-                column: "TodoListsId");
+                column: "TodoListId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_TodoLists_UsersId",
+                name: "IX_TodoLists_UserId",
                 table: "TodoLists",
-                column: "UsersId");
+                column: "UserId");
         }
 
         /// <inheritdoc />
