@@ -1,4 +1,5 @@
 ﻿using CollaborativeToDoList.Models;
+using CollaborativeToDoList.Repository.CategoriesRepos;
 using CollaborativeToDoList.Repository.TasksRepos;
 using CollaborativeToDoList.Repository.TodoListsRepos;
 using CollaborativeToDoList.Service.UserService;
@@ -14,13 +15,15 @@ namespace CollaborativeToDoList.Service.TasksService
     {
         private readonly ITasksRepository _tasksRepository;
         private readonly ITodoListsRepository _todoListsRepository;
+        private readonly ICategoriesRepository _categoriesRepository;
         private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public TasksServiceImp(ITasksRepository tasksRepository, ITodoListsRepository todoListsRepository, IHttpContextAccessor httpContextAccessor)
+        public TasksServiceImp(ITasksRepository tasksRepository, ITodoListsRepository todoListsRepository, IHttpContextAccessor httpContextAccessor, ICategoriesRepository categoriesRepository )
         {
             _tasksRepository = tasksRepository;
             _todoListsRepository = todoListsRepository;
             _httpContextAccessor = httpContextAccessor;
+            _categoriesRepository = categoriesRepository;
         }
 
        async  Task<ResponseTasksDTO> ITasksService.CreateTaskInTodoList(CreateTasksDTO createTasksDTO)
@@ -43,13 +46,20 @@ namespace CollaborativeToDoList.Service.TasksService
                 throw new UnauthorizedAccessException("You do not have permission to create a task in this to-do list.");
             }
 
+            var category = await _categoriesRepository.GetCategoryByName(createTasksDTO.CategoryName);
+            if (category == null)
+            {
+                throw new KeyNotFoundException("Category not found.");
+            }
+
             var task = new Tasks
             {
                 Description = createTasksDTO.Description,
-                CreatedAt = DateTime.UtcNow,
+                CreatedAt = createTasksDTO.CreatedAt == default ? DateTime.UtcNow : createTasksDTO.CreatedAt,
                 EndedAt = createTasksDTO.EndedAt,
                 TodoListId = createTasksDTO.todoListId,
-                CategoriesId = createTasksDTO.CategoriesId
+                CategoriesId = category.Id,
+                Categories = category
             };
 
             var createdTask = await _tasksRepository.CreateTask(task);
@@ -60,7 +70,7 @@ namespace CollaborativeToDoList.Service.TasksService
                 Description: createdTask.Description,
                 CreatedAt: createdTask.CreatedAt,
                 EndedAt: createdTask.EndedAt,
-                CategoryName : createdTask.Categories.Name
+                CategoryName: category.Name
                 );
 
             return responseDto;
@@ -156,20 +166,27 @@ namespace CollaborativeToDoList.Service.TasksService
                 throw new KeyNotFoundException("Task not found.");
             }
 
+            var category = await _categoriesRepository.GetCategoryByName(updateTasksDTO.CategoryName);
+            if (category == null)
+            {
+                throw new KeyNotFoundException("Category not found.");
+            }
+
             task.Description = updateTasksDTO.Description;
+            task.CreatedAt = updateTasksDTO.CreatedAt;
             task.EndedAt = updateTasksDTO.EndedAt;
-            task.CategoriesId = updateTasksDTO.CategoriesId;
+            task.CategoriesId = category.Id;
 
             var updatedTask = await _tasksRepository.UpdateTask(task);
 
             var responseDto = new ResponseTasksDTO
             (
-                Id: updatedTask.Id,
-                Description: updatedTask.Description,
-                CreatedAt: updatedTask.CreatedAt,
-                EndedAt: updatedTask.EndedAt,
-                CategoryName: updatedTask.Categories.Name
-                );
+            Id: updatedTask.Id,
+            Description: updatedTask.Description,
+            CreatedAt: updatedTask.CreatedAt,
+            EndedAt: updatedTask.EndedAt,
+            CategoryName: category.Name
+            );
 
             return responseDto;
 

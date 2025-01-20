@@ -1,4 +1,5 @@
-﻿using CollaborativeToDoList.ViewModels.TasksViewModels.request;
+﻿using CollaborativeToDoList.Models;
+using CollaborativeToDoList.ViewModels.TasksViewModels.request;
 using CollaborativeToDoList.ViewModels.TasksViewModels.response;
 
 namespace CollaborativeToDoList.Service.TasksService
@@ -9,5 +10,6 @@ namespace CollaborativeToDoList.Service.TasksService
         Task<ResponseTasksDTO> UpdateTaskInTodoList(UpdateTasksDTO updateTasksDTO);
         Task DeleteTaskInTodoList(DeleteTasksDTO deleteTasksDTO);
         Task<IEnumerable<ResponseTasksDTO>> GetAllTasksInTodoList(GetAlLTasksDTO getAlLTasksDTO);
+
     }
 }

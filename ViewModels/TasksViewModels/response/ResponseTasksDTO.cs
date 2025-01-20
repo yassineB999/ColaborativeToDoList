@@ -8,7 +8,7 @@ namespace CollaborativeToDoList.ViewModels.TasksViewModels.response
       int Id,
      string Description,
      DateTime CreatedAt,
-     DateTime? EndedAt,
+     DateTime EndedAt,
      string CategoryName
         )
     { }

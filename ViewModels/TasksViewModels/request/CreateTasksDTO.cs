@@ -13,8 +13,6 @@ namespace CollaborativeToDoList.ViewModels.TasksViewModels.request
          [Required(ErrorMessage = "Description is required.")]
          string Description,
 
-         [NotNull]
-         [Required(ErrorMessage = "Date is required.")]
          DateTime CreatedAt,
 
          [NotNull]
@@ -23,7 +21,8 @@ namespace CollaborativeToDoList.ViewModels.TasksViewModels.request
 
          int todoListId,
 
-         int CategoriesId
+         [Required(ErrorMessage = "Category is required.")]
+         string CategoryName
         )
     {}
 }

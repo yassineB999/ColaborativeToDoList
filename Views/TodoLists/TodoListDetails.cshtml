@@ -3,30 +3,123 @@
 @{
     ViewData["Title"] = "TodoListDetails";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var categories = ViewBag.Categories as IEnumerable<CollaborativeToDoList.Models.Categories>; // Fetch categories from ViewBag
 }
 
-<h2>Tasks for To-Do List</h2>
+<div class="container mx-auto p-8">
+    <!-- Hidden inputs for URLs -->
+    <input type="hidden" id="create-task-url" value="@Url.Action("CreateTask", "TodoLists")" />
+    <input type="hidden" id="update-task-url" value="@Url.Action("UpdateTask", "TodoLists")" />
+    <input type="hidden" id="delete-task-url" value="@Url.Action("DeleteTask", "TodoLists")" />
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Description</th>
-            <th>Created At</th>
-            <th>Ended At</th>
-            <th>Category</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var task in Model)
-        {
-            <tr>
-                <td>@task.Id</td>
-                <td>@task.Description</td>
-                <td>@task.CreatedAt.ToString("yyyy-MM-dd HH:mm:ss")</td>
-                <td>@(task.EndedAt?.ToString("yyyy-MM-dd HH:mm:ss") ?? "Not completed")</td>
-                <td>@task.CategoryName</td>
-            </tr>
-        }
-    </tbody>
-</table>
+    <h2 class="text-2xl font-bold mb-6">Tasks for To-Do List</h2>
+
+    <!-- Create Task Form -->
+    <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+        <h3 class="text-xl font-semibold mb-4">Create New Task</h3>
+        <form id="create-task-form" class="space-y-4">
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                <label for="Description" class="block text-sm font-medium text-gray-700">Description</label>
+                <input type="text" id="Description" name="Description" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" required />
+            </div>
+            <div class="form-group">
+                <label for="CreatedAt" class="block text-sm font-medium text-gray-700">Start Date</label>
+                <input type="datetime-local" id="CreatedAt" name="CreatedAt" value="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
+            </div>
+            <div class="form-group">
+                <label for="EndedAt" class="block text-sm font-medium text-gray-700">End Date</label>
+                <input type="datetime-local" id="EndedAt" name="EndedAt" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" required />
+            </div>
+            <div class="form-group">
+                <label for="CategoryName" class="block text-sm font-medium text-gray-700">Category</label>
+                <select id="CategoryName" name="CategoryName" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" required>
+                    <option value="">Select a category</option>
+                    @if (categories != null)
+                    {
+                        foreach (var category in categories)
+                        {
+                            <option value="@category.Name">@category.Name</option>
+                        }
+                    }
+                    else
+                    {
+                        <option value="">No categories available</option>
+                    }
+                </select>
+            </div>
+            <input type="hidden" id="todoListId" name="todoListId" value="@ViewBag.TodoListId" />
+            <button type="button" onclick="submitCreateTaskForm()" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                Create Task
+            </button>
+        </form>
+    </div>
+
+    <!-- List of Tasks -->
+    <div class="bg-white p-6 rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold mb-4">Tasks</h3>
+        <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+                <tr>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Start Date</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">End Date</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Category</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+                @foreach (var task in Model)
+                {
+                    <tr data-id="@task.Id">
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                            <input type="text" value="@task.Description" class="update-description-input mr-2 p-1 border rounded-md focus:border-indigo-500 focus:ring-indigo-500" />
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                            <input type="datetime-local" value="@task.CreatedAt.ToString("yyyy-MM-ddTHH:mm")" class="update-createdat-input mr-2 p-1 border rounded-md focus:border-indigo-500 focus:ring-indigo-500" />
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                            <input type="datetime-local" value="@task.EndedAt.ToString("yyyy-MM-ddTHH:mm")" class="update-endedat-input mr-2 p-1 border rounded-md focus:border-indigo-500 focus:ring-indigo-500" />
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                            <select class="update-categoryname-input mr-2 p-1 border rounded-md focus:border-indigo-500 focus:ring-indigo-500">
+                                <option value="">Select a category</option>
+                                @if (categories != null)
+                                {
+                                    foreach (var category in categories)
+                                    {
+                                        <option value="@category.Name" selected="@(category.Name == task.CategoryName ? "selected" : null)">@category.Name</option>
+                                    }
+                                }
+                                else
+                                {
+                                    <option value="">No categories available</option>
+                                }
+                            </select>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
+                            <!-- Update Button -->
+                            <button onclick="updateTask(@task.Id)" class="text-indigo-600 hover:text-indigo-900 inline-flex items-center">
+                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                                </svg>
+                                Update
+                            </button>
+                            <!-- Delete Button -->
+                            <button onclick="deleteTask(@task.Id)" class="text-red-600 hover:text-red-900 inline-flex items-center">
+                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                </svg>
+                                Delete
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/TodoListDetails.js"></script>
+}

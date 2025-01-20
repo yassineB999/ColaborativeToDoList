@@ -1,7 +1,9 @@
 using CollaborativeToDoList.Data;
+using CollaborativeToDoList.Repository.CategoriesRepos;
 using CollaborativeToDoList.Repository.TasksRepos;
 using CollaborativeToDoList.Repository.TodoListsRepos;
 using CollaborativeToDoList.Repository.UsersRepos;
+using CollaborativeToDoList.Service.CategoriesService;
 using CollaborativeToDoList.Service.TasksService;
 using CollaborativeToDoList.Service.TodoListsService;
 using CollaborativeToDoList.Service.UserService;
@@ -54,7 +56,8 @@ namespace CollaborativeToDoList
             builder.Services.AddScoped<ITodoListsService, TodoListsServiceImp>();
             builder.Services.AddScoped<ITasksRepository, TasksRepositoryImp>();
             builder.Services.AddScoped<ITasksService, TasksServiceImp>();
-
+            builder.Services.AddScoped<ICategoriesRepository, CategoriesRepositoryImp>();
+            builder.Services.AddScoped<ICategoriesService, CategoriesServiceImp>();
             // Register IHttpContextAccessor to access HttpContext in services
             builder.Services.AddHttpContextAccessor();
 

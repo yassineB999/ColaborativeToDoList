@@ -21,7 +21,7 @@ namespace CollaborativeToDoList.ViewModels.TasksViewModels.request
 
          int todoListId,
 
-         int CategoriesId
+         string CategoryName
         )
     {}
 }
