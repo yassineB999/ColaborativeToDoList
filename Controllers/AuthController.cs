@@ -16,14 +16,22 @@ namespace CollaborativeToDoList.Controllers
         }
 
         [HttpGet]
+        public IActionResult LoginWithRedirect(string returnUrl)
+        {
+            // Store the return URL (shared URL) in TempData or ViewBag
+            ViewBag.ReturnUrl = returnUrl;
+            return View("Login"); // Render the login page
+        }
+
+        [HttpGet]
         public IActionResult Login()
         {
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(LoginDTO loginDTO) 
-         {
+        public async Task<IActionResult> Login(LoginDTO loginDTO)
+        {
             if (ModelState.IsValid)
             {
                 var user = await _userService.LoginUser(loginDTO);
@@ -31,7 +39,7 @@ namespace CollaborativeToDoList.Controllers
                 if (user == null) return RedirectToAction("Login");
 
                 return RedirectToAction("TodoHome", "TodoLists");
-            } 
+            }
 
             return View(loginDTO);
         }

@@ -7,7 +7,8 @@ namespace CollaborativeToDoList.ViewModels.TodoListViewModels.response
            int Id,
            string Title,
            int OwnerId,
-           string OwnerName
+           string OwnerName,
+           string SharedUrl
 
         )
     {

@@ -58,5 +58,25 @@ namespace CollaborativeToDoList.Repository.TodoListsRepos
             await _db.SaveChangesAsync();
             return todoList;
         }
+
+        public async Task<TodoLists> GetTodoListBySharedUrl(string sharedUrl)
+        {
+            var todoList = await _db.TodoLists
+                .FirstOrDefaultAsync(t => t.SharedUrl == sharedUrl);
+            if (todoList == null)
+            {
+                return null;
+            }
+            return todoList;
+        }
+
+        public async Task<IEnumerable<TodoLists>> GetJoinedTodoLists(int userId)
+        {
+            return await _db.TodoLists
+            .Include(t => t.Collaborators)
+            .Include(t => t.Users)
+            .Where(t => t.Collaborators.Any(c => c.UserId == userId && c.IsApproved))
+            .ToListAsync();
+        }
     }
 }

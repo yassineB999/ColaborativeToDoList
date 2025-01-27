@@ -1,5 +1,7 @@
 using CollaborativeToDoList.Data;
+using CollaborativeToDoList.Models;
 using CollaborativeToDoList.Repository.CategoriesRepos;
+using CollaborativeToDoList.Repository.CollaboratorsRepos;
 using CollaborativeToDoList.Repository.TasksRepos;
 using CollaborativeToDoList.Repository.TodoListsRepos;
 using CollaborativeToDoList.Repository.UsersRepos;
@@ -58,12 +60,24 @@ namespace CollaborativeToDoList
             builder.Services.AddScoped<ITasksService, TasksServiceImp>();
             builder.Services.AddScoped<ICategoriesRepository, CategoriesRepositoryImp>();
             builder.Services.AddScoped<ICategoriesService, CategoriesServiceImp>();
+            builder.Services.AddScoped<ICollaboratorsRepository, CollaboratorsRepositoryImp>();
+            builder.Services.AddScoped<Utils>();
             // Register IHttpContextAccessor to access HttpContext in services
             builder.Services.AddHttpContextAccessor();
 
             ConfigureServices(builder.Services);
 
+            builder.Services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(30); // Set session timeout
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
+
             var app = builder.Build();
+
+            // Add session middleware
+            app.UseSession();
 
             Configure(app);
 
@@ -112,6 +126,10 @@ namespace CollaborativeToDoList
 
             app.UseAuthorization();
 
+            app.MapControllerRoute(
+            name: "sharedUrl",
+            pattern: "Home/AccessSharedUrl",
+            defaults: new { controller = "Home", action = "AccessSharedUrl" });
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Auth}/{action=Login}/{id?}");

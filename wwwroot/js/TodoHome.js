@@ -2,6 +2,7 @@
 const createUrl = document.getElementById('create-url').value;
 const updateUrl = document.getElementById('update-url').value;
 const deleteUrl = document.getElementById('delete-url').value;
+const joinUrl = document.getElementById('join-url').value;
 
 // Function to show a notification message
 function showSnackbar(message, type) {
@@ -65,6 +66,50 @@ function submitCreateForm() {
         .catch(error => {
             console.error('Error:', error);
             showSnackbar('An error occurred. Please try again.', "error");
+        });
+}
+
+function submitJoinForm() {
+    const form = document.getElementById('join-form');
+    if (!form) {
+        showSnackbar('Join form not found', 'error');
+        return;
+    }
+
+    const formData = new FormData(form);
+    const sharedUrl = formData.get('SharedUrl');
+
+    if (!sharedUrl) {
+        showSnackbar('Please enter a shared URL', 'error');
+        return;
+    }
+
+    showSnackbar("Joining todo list...", "success");
+
+    // Use the joinUrl variable here
+    fetch(joinUrl, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]').value
+        },
+        body: JSON.stringify({ SharedUrl: sharedUrl })
+    })
+        .then(response => {
+            if (!response.ok) throw new Error('Network error');
+            return response.json();
+        })
+        .then(result => {
+            if (result.success) {
+                showSnackbar("Joined successfully!", "success");
+                setTimeout(() => window.location.reload(), 1500);
+            } else {
+                showSnackbar(result.message || "Join failed", "error");
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            showSnackbar('Failed to join list', "error");
         });
 }
 

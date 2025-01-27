@@ -11,6 +11,8 @@ namespace CollaborativeToDoList.Models
 
         public bool CanEdit { get; set; }
 
+        public bool IsApproved { get; set; }
+
         [ForeignKey("Users")]
         public int UserId { get; set; }
         public Users Users { get; set; }

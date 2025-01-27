@@ -15,5 +15,9 @@ namespace CollaborativeToDoList.Repository.TodoListsRepos
         Task<IEnumerable<TodoLists>> GetAllTodoList();
 
         Task<IEnumerable<TodoLists>> GetAllMyTodoList(int userId);
+
+        Task<IEnumerable<TodoLists>> GetJoinedTodoLists(int userId);
+
+        Task<TodoLists> GetTodoListBySharedUrl(string sharedUrl);
     }
 }

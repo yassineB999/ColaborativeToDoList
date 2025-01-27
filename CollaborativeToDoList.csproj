@@ -7,18 +7,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\js\PendingCollaborators.js" />
     <Content Remove="wwwroot\js\TodoListDetails.js" />
   </ItemGroup>
 
   <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\js\PendingCollaborators.js" />
     <_ContentIncludedByDefault Remove="wwwroot\js\TodoListDetails.js" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="ViewModels\TodoListViewModels\response\" />
     <Folder Include="wwwroot\lib\" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\js\PendingCollaborators.js" />
     <None Include="wwwroot\js\TodoListDetails.js" />
   </ItemGroup>
 
