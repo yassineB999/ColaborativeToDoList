@@ -333,6 +333,39 @@ namespace CollaborativeToDoList.Service.TodoListsService
             // Reject (delete) the collaborator
             await _collaboratorsRepository.DeleteCollaboratos(collaborator.Id);
         }
+
+        public async Task LeaveTodoList(int todoListId)
+        {
+            // Get the current user ID from the claims
+            var userIdClaim = _httpContextAccessor.HttpContext?.User.FindFirst("UserId");
+            if (userIdClaim == null || !int.TryParse(userIdClaim.Value, out int currentUserId))
+            {
+                throw new InvalidOperationException("User ID not found or invalid.");
+            }
+
+            // Get the to-do list by ID
+            var todoList = await _todoListsRepository.GetTodoListById(todoListId);
+            if (todoList == null)
+            {
+                throw new KeyNotFoundException("To-do list not found.");
+            }
+
+            // Check if the current user is the owner of the to-do list
+            if (todoList.UserId == currentUserId)
+            {
+                throw new InvalidOperationException("You are the owner of this to-do list and cannot leave it.");
+            }
+
+            // Check if the user is a collaborator
+            var existingCollaborator = await _collaboratorsRepository.GetCollaboratorByTodoListAndUser(todoListId, currentUserId);
+            if (existingCollaborator == null)
+            {
+                throw new InvalidOperationException("You are not a collaborator on this to-do list.");
+            }
+
+            // Remove the collaborator
+            await _collaboratorsRepository.DeleteCollaboratos(existingCollaborator.Id);
+        }
     }
 }
 

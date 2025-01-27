@@ -17,5 +17,7 @@ namespace CollaborativeToDoList.Service.TodoListsService
         Task<IEnumerable<ResponseCollaboratorDTO>> GetPendingCollaboratorsByOwnerId(int ownerId);
         Task JoinTodoListBySharedUrl(JoinTodoListDTO joinTodoListDTO);
         Task<ResponseTodoListsDTO> GetTodoListById(int id);
+
+        Task LeaveTodoList(int todoListId);
     }
 }

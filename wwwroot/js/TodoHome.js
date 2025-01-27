@@ -3,6 +3,7 @@ const createUrl = document.getElementById('create-url').value;
 const updateUrl = document.getElementById('update-url').value;
 const deleteUrl = document.getElementById('delete-url').value;
 const joinUrl = document.getElementById('join-url').value;
+const leaveUrl = document.getElementById('leave-url').value;
 
 // Function to show a notification message
 function showSnackbar(message, type) {
@@ -177,6 +178,34 @@ function deleteTodoList(id) {
             .catch(error => {
                 console.error('Error:', error);
                 showSnackbar('An error occurred while deleting. Please try again.', "error");
+            });
+    }
+}
+
+// Function to handle leaving a Todo List
+function leaveTodoList(todoListId) {
+    if (confirm('Are you sure you want to leave this Todo List?')) {
+        showSnackbar("Leaving todo list...", "success");
+
+        fetch(`${leaveUrl}?todoListId=${todoListId}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]').value
+            }
+        })
+            .then(response => response.json())
+            .then(result => {
+                if (result.success) {
+                    showSnackbar(result.message || "Successfully left the to-do list.", "success");
+                    setTimeout(() => window.location.reload(), 1500); // Reload after 1.5 seconds
+                } else {
+                    showSnackbar(result.message || "Failed to leave the to-do list.", "error");
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showSnackbar('An error occurred while leaving the to-do list. Please try again.', "error");
             });
     }
 }

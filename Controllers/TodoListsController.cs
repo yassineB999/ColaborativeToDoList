@@ -192,5 +192,20 @@ namespace CollaborativeToDoList.Controllers
                 return Json(new { success = false, message = ex.Message });
             }
         }
+
+        [HttpDelete]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> LeaveTodoList([FromQuery] int todoListId)
+        {
+            try
+            {
+                await _todoListsService.LeaveTodoList(todoListId);
+                return Json(new { success = true, message = "Successfully left the to-do list." });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = ex.Message });
+            }
+        }
     }
 }

@@ -3,20 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|c:\\users\\hp_y\\source\\repos\\collaborativetodolist\\controllers\\todolistscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|solutionrelative:controllers\\todolistscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|c:\\users\\hp_y\\source\\repos\\collaborativetodolist\\views\\todolists\\todohome.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|solutionrelative:views\\todolists\\todohome.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|c:\\users\\hp_y\\source\\repos\\collaborativetodolist\\service\\todolistsservice\\itodolistsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|solutionrelative:service\\todolistsservice\\itodolistsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|c:\\users\\hp_y\\source\\repos\\collaborativetodolist\\service\\todolistsservice\\todolistsserviceimp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|solutionrelative:service\\todolistsservice\\todolistsserviceimp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|c:\\users\\hp_y\\source\\repos\\collaborativetodolist\\viewmodels\\todolistviewmodels\\request\\jointodolistdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|solutionrelative:viewmodels\\todolistviewmodels\\request\\jointodolistdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|c:\\users\\hp_y\\source\\repos\\collaborativetodolist\\wwwroot\\js\\todohome.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|solutionrelative:wwwroot\\js\\todohome.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,54 +30,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ITodoListsService.cs",
-              "DocumentMoniker": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\Service\\TodoListsService\\ITodoListsService.cs",
-              "RelativeDocumentMoniker": "Service\\TodoListsService\\ITodoListsService.cs",
-              "ToolTip": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\Service\\TodoListsService\\ITodoListsService.cs",
-              "RelativeToolTip": "Service\\TodoListsService\\ITodoListsService.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABEAAABGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-27T10:18:26.282Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "TodoListsController.cs",
-              "DocumentMoniker": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\Controllers\\TodoListsController.cs",
-              "RelativeDocumentMoniker": "Controllers\\TodoListsController.cs",
-              "ToolTip": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\Controllers\\TodoListsController.cs",
-              "RelativeToolTip": "Controllers\\TodoListsController.cs",
-              "ViewState": "AQIAAK4AAAAAAAAAAAAAAMEAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-27T10:14:17.727Z",
+              "Title": "TodoHome.cshtml",
+              "DocumentMoniker": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\Views\\TodoLists\\TodoHome.cshtml",
+              "RelativeDocumentMoniker": "Views\\TodoLists\\TodoHome.cshtml",
+              "ToolTip": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\Views\\TodoLists\\TodoHome.cshtml",
+              "RelativeToolTip": "Views\\TodoLists\\TodoHome.cshtml",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABAAAABNAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-27T11:32:13.332Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "JoinTodoListDTO.cs",
-              "DocumentMoniker": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\ViewModels\\TodoListViewModels\\request\\JoinTodoListDTO.cs",
-              "RelativeDocumentMoniker": "ViewModels\\TodoListViewModels\\request\\JoinTodoListDTO.cs",
-              "ToolTip": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\ViewModels\\TodoListViewModels\\request\\JoinTodoListDTO.cs",
-              "RelativeToolTip": "ViewModels\\TodoListViewModels\\request\\JoinTodoListDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-27T10:13:31.145Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "TodoListsServiceImp.cs",
-              "DocumentMoniker": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\Service\\TodoListsService\\TodoListsServiceImp.cs",
-              "RelativeDocumentMoniker": "Service\\TodoListsService\\TodoListsServiceImp.cs",
-              "ToolTip": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\Service\\TodoListsService\\TodoListsServiceImp.cs",
-              "RelativeToolTip": "Service\\TodoListsService\\TodoListsServiceImp.cs",
-              "ViewState": "AQIAAOoAAAAAAAAAAADwv/YAAABIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-27T10:08:21.581Z",
+              "DocumentIndex": 1,
+              "Title": "TodoHome.js",
+              "DocumentMoniker": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\wwwroot\\js\\TodoHome.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\TodoHome.js",
+              "ToolTip": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\wwwroot\\js\\TodoHome.js",
+              "RelativeToolTip": "wwwroot\\js\\TodoHome.js",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-01-27T11:32:00.92Z",
               "EditorCaption": ""
             }
           ]
