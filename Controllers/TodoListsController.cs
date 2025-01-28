@@ -195,7 +195,7 @@ namespace CollaborativeToDoList.Controllers
 
         [HttpDelete]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> LeaveTodoList([FromQuery] int todoListId)
+        public async Task<IActionResult> LeaveTodoList([FromBody] int todoListId)
         {
             try
             {

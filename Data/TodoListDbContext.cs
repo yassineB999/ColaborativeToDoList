@@ -19,33 +19,40 @@ namespace CollaborativeToDoList.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // Collaborators: Link to Users with Restrict delete
             modelBuilder.Entity<Collaborators>()
-             .HasOne(c => c.Users)
-             .WithMany(u => u.Collaborators)
-             .HasForeignKey(c => c.UserId)
-             .OnDelete(DeleteBehavior.Restrict);
+                .HasOne(c => c.Users)
+                .WithMany(u => u.Collaborators)
+                .HasForeignKey(c => c.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
 
+            // Collaborators: Link to TodoLists with Cascade delete
             modelBuilder.Entity<Collaborators>()
                 .HasOne(c => c.TodoLists)
                 .WithMany(t => t.Collaborators)
                 .HasForeignKey(c => c.TodoListId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Cascade);
 
+            // Tasks: Link to TodoLists
             modelBuilder.Entity<Tasks>()
                 .HasOne(t => t.TodoLists)
                 .WithMany(t => t.Tasks)
                 .HasForeignKey(t => t.TodoListId);
 
+            // Tasks: Link to Categories
             modelBuilder.Entity<Tasks>()
                 .HasOne(t => t.Categories)
                 .WithMany(c => c.Tasks)
                 .HasForeignKey(t => t.CategoriesId);
 
+            // TodoLists: Link to Users with Cascade delete
             modelBuilder.Entity<TodoLists>()
                 .HasOne(t => t.Users)
                 .WithMany(u => u.TodoLists)
-                .HasForeignKey(t => t.UserId);
+                .HasForeignKey(t => t.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
+
 
     }
 }

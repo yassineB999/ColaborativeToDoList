@@ -187,12 +187,13 @@ function leaveTodoList(todoListId) {
     if (confirm('Are you sure you want to leave this Todo List?')) {
         showSnackbar("Leaving todo list...", "success");
 
-        fetch(`${leaveUrl}?todoListId=${todoListId}`, {
+        fetch(`${leaveUrl}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
                 'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]').value
-            }
+            },
+            body: JSON.stringify(todoListId)
         })
             .then(response => response.json())
             .then(result => {

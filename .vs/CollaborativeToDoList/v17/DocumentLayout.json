@@ -3,12 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|c:\\users\\hp_y\\source\\repos\\collaborativetodolist\\views\\todolists\\todohome.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|solutionrelative:views\\todolists\\todohome.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|c:\\users\\hp_y\\source\\repos\\collaborativetodolist\\data\\todolistdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|solutionrelative:data\\todolistdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\Migrations\\20250128140721_AddingCascade4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20250128140721_AddingCascade4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\Migrations\\20250128140355_AddingCascade1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20250128140355_AddingCascade1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|c:\\users\\hp_y\\source\\repos\\collaborativetodolist\\wwwroot\\js\\todohome.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|solutionrelative:wwwroot\\js\\todohome.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|c:\\users\\hp_y\\source\\repos\\collaborativetodolist\\controllers\\todolistscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|solutionrelative:controllers\\todolistscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|c:\\users\\hp_y\\source\\repos\\collaborativetodolist\\service\\todolistsservice\\todolistsserviceimp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|solutionrelative:service\\todolistsservice\\todolistsserviceimp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|c:\\users\\hp_y\\source\\repos\\collaborativetodolist\\views\\todolists\\todohome.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3886D71F-19D5-4A5D-A5FC-08F80AB1A18F}|CollaborativeToDoList.csproj|solutionrelative:views\\todolists\\todohome.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,8 +38,22 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 5,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TodoHome.js",
+              "DocumentMoniker": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\wwwroot\\js\\TodoHome.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\TodoHome.js",
+              "ToolTip": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\wwwroot\\js\\TodoHome.js",
+              "RelativeToolTip": "wwwroot\\js\\TodoHome.js",
+              "ViewState": "AQIAALkAAAAAAAAAAAAuwMEAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-01-28T13:43:44.624Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
@@ -30,28 +64,80 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "20250128140721_AddingCascade4.cs",
+              "DocumentMoniker": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\Migrations\\20250128140721_AddingCascade4.cs",
+              "RelativeDocumentMoniker": "Migrations\\20250128140721_AddingCascade4.cs",
+              "ToolTip": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\Migrations\\20250128140721_AddingCascade4.cs",
+              "RelativeToolTip": "Migrations\\20250128140721_AddingCascade4.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-28T14:07:21.986Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "20250128140355_AddingCascade1.cs",
+              "DocumentMoniker": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\Migrations\\20250128140355_AddingCascade1.cs",
+              "RelativeDocumentMoniker": "Migrations\\20250128140355_AddingCascade1.cs",
+              "ToolTip": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\Migrations\\20250128140355_AddingCascade1.cs",
+              "RelativeToolTip": "Migrations\\20250128140355_AddingCascade1.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-28T14:03:55.989Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "TodoListDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\Data\\TodoListDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\TodoListDbContext.cs",
+              "ToolTip": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\Data\\TodoListDbContext.cs",
+              "RelativeToolTip": "Data\\TodoListDbContext.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAADwvxwAAAA9AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-28T14:00:47.512Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TodoListsServiceImp.cs",
+              "DocumentMoniker": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\Service\\TodoListsService\\TodoListsServiceImp.cs",
+              "RelativeDocumentMoniker": "Service\\TodoListsService\\TodoListsServiceImp.cs",
+              "ToolTip": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\Service\\TodoListsService\\TodoListsServiceImp.cs",
+              "RelativeToolTip": "Service\\TodoListsService\\TodoListsServiceImp.cs",
+              "ViewState": "AQIAAE4BAAAAAAAAAAAuwFcBAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-27T11:53:32.766Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TodoListsController.cs",
+              "DocumentMoniker": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\Controllers\\TodoListsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\TodoListsController.cs",
+              "ToolTip": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\Controllers\\TodoListsController.cs",
+              "RelativeToolTip": "Controllers\\TodoListsController.cs",
+              "ViewState": "AQIAAMAAAAAAACCfkAQowMkAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-27T11:53:16.551Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "TodoHome.cshtml",
               "DocumentMoniker": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\Views\\TodoLists\\TodoHome.cshtml",
               "RelativeDocumentMoniker": "Views\\TodoLists\\TodoHome.cshtml",
               "ToolTip": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\Views\\TodoLists\\TodoHome.cshtml",
               "RelativeToolTip": "Views\\TodoLists\\TodoHome.cshtml",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAABAAAABNAAAA",
+              "ViewState": "AQIAAJQAAAAAAAAAAAAAAKIAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-01-27T11:32:13.332Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "TodoHome.js",
-              "DocumentMoniker": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\wwwroot\\js\\TodoHome.js",
-              "RelativeDocumentMoniker": "wwwroot\\js\\TodoHome.js",
-              "ToolTip": "C:\\Users\\HP_Y\\source\\repos\\CollaborativeToDoList\\wwwroot\\js\\TodoHome.js",
-              "RelativeToolTip": "wwwroot\\js\\TodoHome.js",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAzAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-01-27T11:32:00.92Z",
               "EditorCaption": ""
             }
           ]

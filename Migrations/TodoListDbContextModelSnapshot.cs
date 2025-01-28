@@ -163,7 +163,7 @@ namespace CollaborativeToDoList.Migrations
                     b.HasOne("CollaborativeToDoList.Models.TodoLists", "TodoLists")
                         .WithMany("Collaborators")
                         .HasForeignKey("TodoListId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("CollaborativeToDoList.Models.Users", "Users")

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace CollaborativeToDoList.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class Init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -69,6 +69,7 @@ namespace CollaborativeToDoList.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CanEdit = table.Column<bool>(type: "bit", nullable: false),
+                    IsApproved = table.Column<bool>(type: "bit", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: false),
                     TodoListId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -80,7 +81,7 @@ namespace CollaborativeToDoList.Migrations
                         column: x => x.TodoListId,
                         principalTable: "TodoLists",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Collaborators_Users_UserId",
                         column: x => x.UserId,

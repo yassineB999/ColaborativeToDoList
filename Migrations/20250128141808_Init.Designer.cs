@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CollaborativeToDoList.Migrations
 {
     [DbContext(typeof(TodoListDbContext))]
-    [Migration("20250119185809_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20250128141808_Init")]
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -51,6 +51,9 @@ namespace CollaborativeToDoList.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<bool>("CanEdit")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsApproved")
                         .HasColumnType("bit");
 
                     b.Property<int>("TodoListId")
@@ -163,7 +166,7 @@ namespace CollaborativeToDoList.Migrations
                     b.HasOne("CollaborativeToDoList.Models.TodoLists", "TodoLists")
                         .WithMany("Collaborators")
                         .HasForeignKey("TodoListId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("CollaborativeToDoList.Models.Users", "Users")
